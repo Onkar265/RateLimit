@@ -3,8 +3,6 @@ package com.rate_limit.backend.Entities;
 import java.time.Instant;
 import java.util.UUID;
 
-import org.hibernate.annotations.ManyToAny;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -19,7 +17,7 @@ public class User {
     private String email;
 
     @Column(name = "password_hash", nullable = false)
-    private String password_hash;
+    private String passwordHash;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "plan_id", nullable = false)
@@ -31,6 +29,6 @@ public class User {
     @PrePersist
     void onCreate()
     {
-        this.createdAt=Instant.now();
+        this.createdAt = Instant.now();
     }
 }
