@@ -1,5 +1,4 @@
 package com.rate_limit.backend.dto;
 
-public class CreateApiKeyRequest {
-    
+public record CreateApiKeyRequest(String label) {
 }

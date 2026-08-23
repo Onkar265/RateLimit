@@ -1,5 +1,6 @@
 package com.rate_limit.backend.dto;
 
-public class CreateApiKeyResponse {
-    
+import java.util.UUID;
+
+public record CreateApiKeyResponse(UUID id, String rawKey, String label) {
 }
