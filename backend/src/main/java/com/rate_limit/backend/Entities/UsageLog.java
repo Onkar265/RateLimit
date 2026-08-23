@@ -36,5 +36,65 @@ public class UsageLog {
     void onCreate() {
         this.requestedAt = Instant.now();
     }
+
+    String getEndPoint()
+    {
+        return this.endpoint;
+    }
+
+    void setEndpoint(String endpoint)
+    {
+        this.endpoint=endpoint;
+    }
+
+    String getMethod()
+    {
+        return this.method;
+    }
+
+    void setMethod(String method)
+    {
+        this.method=method;
+    }
+
+    int getStatusCode()
+    {
+        return this.statusCode;
+    }
+
+    void setStatusCode(int statusCode)
+    {
+        this.statusCode=statusCode;
+    }
+
+    int getResponseTimeMs()
+    {
+        return this.responseTimeMs;
+    }
+
+    void setResponseTimeMs(int responseTimeMs)
+    {
+        this.responseTimeMs=responseTimeMs;
+    }
+
+    Instant getRequestedAt()
+    {
+        return this.requestedAt;
+    }
+
+    void setRequestedAt(Instant requestedAt)
+    {
+        this.requestedAt=requestedAt;
+    }
+
+    UUID getId()
+    {
+        return this.id;
+    }
+
+    void setId(UUID id)
+    {
+        this.id=id;
+    }
 }
     

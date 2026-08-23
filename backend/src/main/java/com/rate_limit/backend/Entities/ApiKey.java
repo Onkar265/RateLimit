@@ -39,4 +39,55 @@ public class ApiKey {
     {
         return revokedAt == null;
     }
+
+    UUID getId()
+    {
+        return this.id;
+    }
+
+    void setId(UUID id)
+    {
+        this.id=id;
+    }
+    
+    String getKeyHash()
+    {
+        return this.keyHash;
+    }
+
+    void setKeyHash(String keyHash)
+    {
+        this.keyHash=keyHash;
+    }
+
+    String getLabel()
+    {
+        return this.label;
+    }
+
+    void setLabel(String label)
+    {
+        this.label=label;
+    }
+
+    Instant getCreatedAt()
+    {
+        return this.createdAt;
+    }
+
+    void setCreatedAt(Instant createdAt)
+    {
+        this.createdAt=createdAt;
+    }
+
+    Instant getRevokedAt()
+    {
+        return this.revokedAt;
+    }
+
+    void setRevokedAt(Instant revokedAt)
+    {
+        this.revokedAt=revokedAt;
+    }
+
 }

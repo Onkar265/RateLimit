@@ -31,4 +31,40 @@ public class User {
     {
         this.createdAt = Instant.now();
     }
+
+    UUID getId()
+    {
+        return this.id;
+    }
+    void setId(UUID id)
+    {
+        this.id=id;
+    }
+
+    String getPasswordHash()
+    {
+        return this.passwordHash;
+    }
+    void setPasswordHash(String passwordHash)
+    {
+        this.passwordHash=passwordHash;
+    }
+
+    String getEmail()
+    {
+        return this.email;
+    }
+    void setEmail(String email)
+    {
+        this.email=email;
+    }
+
+    Instant getCreatedAt()
+    {
+        return this.createdAt;
+    }
+    void setCreatedAt(Instant createdAt)
+    {
+        this.createdAt=createdAt;
+    }
 }
