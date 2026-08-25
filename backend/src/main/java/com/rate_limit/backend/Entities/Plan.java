@@ -24,42 +24,42 @@ public class Plan {
     @Column(name = "burst_capacity", nullable = false)
     private int burstCapacity;
 
-    UUID getId()
+    public UUID getId()
     {
         return this.id;
     }
 
-    void setId(UUID id)
+    public void setId(UUID id)
     {
         this.id=id;
     }
 
-    String getPlanName()
+    public String getPlanName()
     {
         return this.planName;
     }
 
-    void setKeyHash(String planName)
+    public void setKeyHash(String planName)
     {
         this.planName=planName;
     }
 
-    int getDailyLimit()
+    public int getDailyLimit()
     {
         return this.dailyLimit;
     }
 
-    void setDailyLimit(int dailytLimit)
+    public void setDailyLimit(int dailytLimit)
     {
         this.dailyLimit=dailytLimit;
     }
 
-    int getBurstCapacity()
+    public int getBurstCapacity()
     {
         return this.burstCapacity;
     }
 
-    void setBurstCapacity(int burstCapacity)
+    public void setBurstCapacity(int burstCapacity)
     {
         this.burstCapacity=burstCapacity;
     }

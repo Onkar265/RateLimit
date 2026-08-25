@@ -30,7 +30,7 @@ public class ApiKey {
     private Instant revokedAt;
 
     @PrePersist
-    void onCreate()
+    public void onCreate()
     {
         this.createdAt = Instant.now();
     }
@@ -40,52 +40,57 @@ public class ApiKey {
         return revokedAt == null;
     }
 
-    UUID getId()
+    public UUID getId()
     {
         return this.id;
     }
 
-    void setId(UUID id)
+    public void setId(UUID id)
     {
         this.id=id;
     }
+
+    public User getUser()
+    {
+        return this.user;
+    }
     
-    String getKeyHash()
+    public String getKeyHash()
     {
         return this.keyHash;
     }
 
-    void setKeyHash(String keyHash)
+    public void setKeyHash(String keyHash)
     {
         this.keyHash=keyHash;
     }
 
-    String getLabel()
+    public String getLabel()
     {
         return this.label;
     }
 
-    void setLabel(String label)
+    public void setLabel(String label)
     {
         this.label=label;
     }
 
-    Instant getCreatedAt()
+    public Instant getCreatedAt()
     {
         return this.createdAt;
     }
 
-    void setCreatedAt(Instant createdAt)
+    public void setCreatedAt(Instant createdAt)
     {
         this.createdAt=createdAt;
     }
 
-    Instant getRevokedAt()
+    public Instant getRevokedAt()
     {
         return this.revokedAt;
     }
 
-    void setRevokedAt(Instant revokedAt)
+    public void setRevokedAt(Instant revokedAt)
     {
         this.revokedAt=revokedAt;
     }

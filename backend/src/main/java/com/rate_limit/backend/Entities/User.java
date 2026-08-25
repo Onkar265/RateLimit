@@ -27,43 +27,48 @@ public class User {
     private Instant createdAt;
 
     @PrePersist
-    void onCreate()
+    public void onCreate()
     {
         this.createdAt = Instant.now();
     }
 
-    UUID getId()
+    public UUID getId()
     {
         return this.id;
     }
-    void setId(UUID id)
+    public void setId(UUID id)
     {
         this.id=id;
     }
 
-    String getPasswordHash()
+    public Plan getPlan()
+    {
+        return this.plan;
+    }
+    
+    public String getPasswordHash()
     {
         return this.passwordHash;
     }
-    void setPasswordHash(String passwordHash)
+    public void setPasswordHash(String passwordHash)
     {
         this.passwordHash=passwordHash;
     }
 
-    String getEmail()
+    public String getEmail()
     {
         return this.email;
     }
-    void setEmail(String email)
+    public void setEmail(String email)
     {
         this.email=email;
     }
 
-    Instant getCreatedAt()
+    public Instant getCreatedAt()
     {
         return this.createdAt;
     }
-    void setCreatedAt(Instant createdAt)
+    public void setCreatedAt(Instant createdAt)
     {
         this.createdAt=createdAt;
     }

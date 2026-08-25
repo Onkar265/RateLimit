@@ -33,66 +33,71 @@ public class UsageLog {
     private Instant requestedAt;
 
     @PrePersist
-    void onCreate() {
+    public void onCreate() {
         this.requestedAt = Instant.now();
     }
 
-    String getEndPoint()
+    public ApiKey getApiKey()
+    {
+        return this.apiKey;
+    }
+
+    public String getEndPoint()
     {
         return this.endpoint;
     }
 
-    void setEndpoint(String endpoint)
+    public void setEndpoint(String endpoint)
     {
         this.endpoint=endpoint;
     }
 
-    String getMethod()
+    public String getMethod()
     {
         return this.method;
     }
 
-    void setMethod(String method)
+    public void setMethod(String method)
     {
         this.method=method;
     }
 
-    int getStatusCode()
+    public int getStatusCode()
     {
         return this.statusCode;
     }
 
-    void setStatusCode(int statusCode)
+    public void setStatusCode(int statusCode)
     {
         this.statusCode=statusCode;
     }
 
-    int getResponseTimeMs()
+    public int getResponseTimeMs()
     {
         return this.responseTimeMs;
     }
 
-    void setResponseTimeMs(int responseTimeMs)
+    public void setResponseTimeMs(int responseTimeMs)
     {
         this.responseTimeMs=responseTimeMs;
     }
 
-    Instant getRequestedAt()
+    public Instant getRequestedAt()
     {
         return this.requestedAt;
     }
 
-    void setRequestedAt(Instant requestedAt)
+    public void setRequestedAt(Instant requestedAt)
     {
         this.requestedAt=requestedAt;
     }
 
-    UUID getId()
+    public UUID getId()
     {
         return this.id;
     }
 
-    void setId(UUID id)
+    public void setId(UUID id)
     {
         this.id=id;
     }
