@@ -42,6 +42,10 @@ public class UsageLog {
         return this.apiKey;
     }
 
+    public void setApiKey(ApiKey apiKey)
+    {
+        this.apiKey=apiKey;
+    }
     public String getEndPoint()
     {
         return this.endpoint;
