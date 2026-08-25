@@ -1,5 +1,11 @@
 package com.rate_limit.backend.exception;
 
-public class ApiKeyNotFoundException {
+import java.util.UUID;
+
+public class ApiKeyNotFoundException extends RuntimeException{
     
+    public ApiKeyNotFoundException(UUID Key)
+    {
+        super(Key +" not found");
+    }
 }
