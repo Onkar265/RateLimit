@@ -1,7 +1,7 @@
 package com.rate_limit.backend.service;
 
-import com.rate_limit.backend.entities.ApiKey;
-import com.rate_limit.backend.entities.UsageLog;
+import com.rate_limit.backend.entity.ApiKey;
+import com.rate_limit.backend.entity.UsageLog;
 import com.rate_limit.backend.repositories.ApiKeyRepository;
 import com.rate_limit.backend.repositories.UsageLogRepository;
 import org.slf4j.Logger;

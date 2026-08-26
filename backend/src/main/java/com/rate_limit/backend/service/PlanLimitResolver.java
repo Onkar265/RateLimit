@@ -3,8 +3,9 @@ package com.rate_limit.backend.service;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
-import com.rate_limit.backend.entities.ApiKey;
+
 import com.rate_limit.backend.repositories.ApiKeyRepository;
+import com.rate_limit.backend.entity.ApiKey;
 import com.rate_limit.backend.exception.InvalidApiKeyException;
 import java.time.Duration;
 

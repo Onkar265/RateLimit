@@ -1,4 +1,4 @@
-package com.rate_limit.backend.entities;
+package com.rate_limit.backend.entity;
 
 import java.util.UUID;
 import jakarta.persistence.Entity;

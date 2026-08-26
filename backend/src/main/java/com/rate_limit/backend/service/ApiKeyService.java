@@ -1,8 +1,8 @@
 package com.rate_limit.backend.service;
 
 import com.rate_limit.backend.dto.CreateApiKeyResponse;
-import com.rate_limit.backend.entities.ApiKey;
-import com.rate_limit.backend.entities.User;
+import com.rate_limit.backend.entity.ApiKey;
+import com.rate_limit.backend.entity.User;
 import com.rate_limit.backend.exception.ApiKeyNotFoundException;
 import com.rate_limit.backend.repositories.ApiKeyRepository;
 import com.rate_limit.backend.repositories.UserRepository;

@@ -1,4 +1,4 @@
-package com.rate_limit.backend.entities;
+package com.rate_limit.backend.entity;
 
 import java.time.Instant;
 import java.util.UUID;

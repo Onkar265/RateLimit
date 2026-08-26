@@ -1,6 +1,6 @@
 package com.rate_limit.backend.exception;
 
-import com.rate_limit.backend.entities.ApiKey;
+import com.rate_limit.backend.entity.ApiKey;
 public class RevokedApiKeyException extends RuntimeException{
     
     public RevokedApiKeyException(ApiKey key)
