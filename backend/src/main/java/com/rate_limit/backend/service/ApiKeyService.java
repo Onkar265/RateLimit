@@ -1,5 +1,6 @@
 package com.rate_limit.backend.service;
 
+import com.rate_limit.backend.dto.ApiKeySummary;
 import com.rate_limit.backend.dto.CreateApiKeyResponse;
 import com.rate_limit.backend.entity.ApiKey;
 import com.rate_limit.backend.entity.User;
@@ -7,6 +8,7 @@ import com.rate_limit.backend.exception.ApiKeyNotFoundException;
 import com.rate_limit.backend.repositories.ApiKeyRepository;
 import com.rate_limit.backend.repositories.UserRepository;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import java.util.List;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 import java.security.MessageDigest;
@@ -63,6 +65,12 @@ public class ApiKeyService {
         byte[] bytes = new byte[32];
         new SecureRandom().nextBytes(bytes);
         return "sk_" + HexFormat.of().formatHex(bytes);
+    }
+
+    public List<ApiKeySummary> listKeys(UUID userId) {
+        return apiKeyRepository.findByUserId(userId).stream()
+            .map(key -> new ApiKeySummary(key.getId(), key.getLabel(), key.getCreatedAt(), key.isActive()))
+            .toList();
     }
 
     private String sha256(String input) {
