@@ -1,5 +1,4 @@
 package com.rate_limit.backend.dto;
 
-public class RegisterRequest {
-    
+public record RegisterRequest(String email, String password) {
 }

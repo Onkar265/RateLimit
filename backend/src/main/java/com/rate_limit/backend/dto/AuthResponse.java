@@ -1,5 +1,4 @@
 package com.rate_limit.backend.dto;
 
-public class AuthResponse {
-    
+public record AuthResponse(String token) {
 }

@@ -1,5 +1,4 @@
 package com.rate_limit.backend.dto;
 
-public class LoginRequest {
-    
+public record LoginRequest(String email, String password) {
 }
