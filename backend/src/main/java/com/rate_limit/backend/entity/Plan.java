@@ -39,7 +39,7 @@ public class Plan {
         return this.planName;
     }
 
-    public void setKeyHash(String planName)
+    public void setPlanName(String planName)
     {
         this.planName=planName;
     }

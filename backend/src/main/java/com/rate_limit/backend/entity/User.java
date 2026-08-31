@@ -45,6 +45,11 @@ public class User {
     {
         return this.plan;
     }
+
+    public void setPlan(Plan plan)
+    {
+        this.plan = plan;
+    }
     
     public String getPasswordHash()
     {
