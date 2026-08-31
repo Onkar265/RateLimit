@@ -43,7 +43,7 @@ public class AuthController {
         }
 
         Plan freePlan = planRepository.findAll().stream()
-            .filter(p -> p.getPlanName().equals("free"))
+            .filter(p -> p.getName().equals("free"))
             .findFirst()
             .orElseThrow(() -> new IllegalStateException("free plan not seeded"));
 
