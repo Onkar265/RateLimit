@@ -16,10 +16,10 @@ public interface ApiKeyRepository extends JpaRepository<ApiKey,UUID>{
     List<ApiKey> findByUserId(UUID userId);
 
     @Query("""
-            Select k fron ApiKey k
+            Select k FROM ApiKey k
             JOIN FETCH k.user u
             JOIN FETCH u.plan
-            WHERE k.KeyHash = :KeyHash
+            WHERE k.keyHash = :keyHash
             """)
     Optional<ApiKey> findByKeyHashWithPlan(@Param("keyHash") String keyHash);
 }

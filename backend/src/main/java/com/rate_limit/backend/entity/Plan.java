@@ -15,7 +15,7 @@ public class Plan {
     @GeneratedValue
     private UUID id;
 
-    @Column(name = "plan_name", nullable = false)
+    @Column(name = "name", nullable = false)
     private String Name;
 
     @Column(name = "daily_limit", nullable = false)
