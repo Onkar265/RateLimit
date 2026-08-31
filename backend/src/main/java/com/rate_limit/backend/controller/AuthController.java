@@ -42,9 +42,7 @@ public class AuthController {
             return ResponseEntity.status(409).build();
         }
 
-        Plan freePlan = planRepository.findAll().stream()
-            .filter(p -> p.getName().equals("free"))
-            .findFirst()
+        Plan freePlan = planRepository.findByName("free")
             .orElseThrow(() -> new IllegalStateException("free plan not seeded"));
 
         User user = new User();

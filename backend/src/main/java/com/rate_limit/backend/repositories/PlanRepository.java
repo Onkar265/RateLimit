@@ -10,5 +10,5 @@ import java.util.UUID;
 
 public interface PlanRepository extends JpaRepository<Plan,UUID> {
     
-    Optional<Plan>getName();
+    Optional<Plan>findByName(String name);
 }
