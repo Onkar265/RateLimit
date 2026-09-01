@@ -21,9 +21,6 @@ public class Plan {
     @Column(name = "daily_limit", nullable = false)
     private int dailyLimit;
 
-    @Column(name = "burst_capacity", nullable = false)
-    private int burstCapacity;
-
     public UUID getId()
     {
         return this.id;
@@ -52,16 +49,6 @@ public class Plan {
     public void setDailyLimit(int dailytLimit)
     {
         this.dailyLimit=dailytLimit;
-    }
-
-    public int getBurstCapacity()
-    {
-        return this.burstCapacity;
-    }
-
-    public void setBurstCapacity(int burstCapacity)
-    {
-        this.burstCapacity=burstCapacity;
     }
 
 }
