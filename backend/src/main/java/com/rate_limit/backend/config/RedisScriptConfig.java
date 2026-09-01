@@ -11,6 +11,6 @@ public class RedisScriptConfig {
     @Bean
     public RedisScript<Long> tockenBucketScript()
     {
-        return RedisScript.of(new ClassPathResource("scripts/.tokenBucket.lua"),Long.class);
+        return RedisScript.of(new ClassPathResource("scripts/tokenBucket.lua"),Long.class);
     }
 }

@@ -16,7 +16,7 @@ public class Plan {
     private UUID id;
 
     @Column(name = "name", nullable = false)
-    private String Name;
+    private String name;
 
     @Column(name = "daily_limit", nullable = false)
     private int dailyLimit;
@@ -33,12 +33,12 @@ public class Plan {
 
     public String getName()
     {
-        return this.Name;
+        return this.name;
     }
 
-    public void setName(String Name)
+    public void setName(String name)
     {
-        this.Name=Name;
+        this.name=name;
     }
 
     public int getDailyLimit()

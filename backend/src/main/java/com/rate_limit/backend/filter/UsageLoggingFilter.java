@@ -24,7 +24,7 @@ public class UsageLoggingFilter extends OncePerRequestFilter{
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res, FilterChain chain)
     throws ServletException, IOException{
-        long start = System.nanoTime();
+        long start = System.nanoTime()/1000000000;
         try
         {
             chain.doFilter(req, res);
@@ -32,7 +32,7 @@ public class UsageLoggingFilter extends OncePerRequestFilter{
         finally
         {
             String apiKeyId = (String)req.getAttribute("apiKeyId");
-            int responseTimeMs = (int)(System.nanoTime()-start);
+            int responseTimeMs = (int)(System.nanoTime()/1000000000-start);
             usageLogService.record(
                 apiKeyId,
                 req.getRequestURI(),
