@@ -53,7 +53,7 @@ public class RateLimitFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String path = request.getRequestURI();
-        return path.startsWith("/api/auth/") || path.startsWith("/api/keys");
+        return path.startsWith("/api/auth/") || path.startsWith("/api/keys") || path.startsWith("/api/usage");
     }
 
     private void writeError(HttpServletResponse res, int status, String message) throws IOException {
