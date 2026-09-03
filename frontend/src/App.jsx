@@ -21,6 +21,7 @@ function App() {
             }
           />
           <Route path="/" element={<Navigate to="/keys" replace />} />
+          <Route path="*" element={<Navigate to="/keys" replace />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
