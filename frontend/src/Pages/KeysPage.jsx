@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { api } from '../api/client'
 import { useAuth } from '../context/useAuth'
 
@@ -14,19 +15,30 @@ export function KeysPage() {
   const { logout } = useAuth()
 
   useEffect(() => {
-    loadKeys()
+    let cancelled = false
+
+    api.get('/api/keys')
+      .then((data) => {
+        if (!cancelled) setKeys(data)
+      })
+      .catch((err) => {
+        if (!cancelled) setError(err.message)
+      })
+      .finally(() => {
+        if (!cancelled) setIsLoading(false)
+      })
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   async function loadKeys() {
-    setIsLoading(true)
-    setError('')
     try {
       const data = await api.get('/api/keys')
       setKeys(data)
     } catch (err) {
       setError(err.message)
-    } finally {
-      setIsLoading(false)
     }
   }
 
@@ -69,6 +81,9 @@ export function KeysPage() {
           >
             Log out
           </button>
+          <Link to="/usage" className="text-sm text-blue-600 hover:underline mr-4">
+            Usage
+          </Link>
         </div>
 
         {error && (

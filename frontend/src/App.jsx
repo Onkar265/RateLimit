@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute'
 import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { KeysPage } from './pages/KeysPage'
+import { UsagePage } from './pages/UsagePage'
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/usage"
+            element={
+              <ProtectedRoute>
+                <UsagePage />
+              </ProtectedRoute>
+      }
+    />
           <Route path="/" element={<Navigate to="/keys" replace />} />
           <Route path="*" element={<Navigate to="/keys" replace />} />
         </Routes>
