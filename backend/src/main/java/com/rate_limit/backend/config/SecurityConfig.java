@@ -19,6 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.util.List;
+import com.rate_limit.backend.security.RestAuthenticationEntryPoint;
 
 @Configuration
 @EnableWebSecurity
@@ -64,11 +65,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(
             HttpSecurity http,
             RateLimitFilter rateLimitFilter,
-            JwtAuthFilter jwtAuthFilter) throws Exception {
+            JwtAuthFilter jwtAuthFilter,
+            RestAuthenticationEntryPoint restAuthenticationEntryPoint) throws Exception {
 
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
+            .exceptionHandling(handling -> handling.authenticationEntryPoint(restAuthenticationEntryPoint))
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
