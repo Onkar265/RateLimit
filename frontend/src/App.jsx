@@ -5,6 +5,7 @@ import { LoginPage } from './pages/LoginPage'
 import { RegisterPage } from './pages/RegisterPage'
 import { KeysPage } from './pages/KeysPage'
 import { UsagePage } from './pages/UsagePage'
+import { TryPage } from './pages/TryPage'
 
 function App() {
   return (
@@ -31,6 +32,13 @@ function App() {
     />
           <Route path="/" element={<Navigate to="/keys" replace />} />
           <Route path="*" element={<Navigate to="/keys" replace />} />
+          <Route path="/try" 
+          element=
+          {
+            <ProtectedRoute>
+              <TryPage />
+            </ProtectedRoute>
+          } />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
