@@ -4,6 +4,11 @@ function getToken() {
   return localStorage.getItem('token')
 }
 
+function handleUnauthorized() {
+  localStorage.removeItem('token')
+  window.location.href = '/login'
+}
+
 async function request(path, options = {}) {
   const token = getToken()
 
@@ -20,6 +25,11 @@ async function request(path, options = {}) {
     ...options,
     headers,
   })
+
+  if (response.status === 401) {
+    handleUnauthorized()
+    throw new Error('Session expired — please log in again')
+  }
 
   if (!response.ok) {
     const errorBody = await response.json().catch(() => ({}))

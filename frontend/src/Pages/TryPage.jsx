@@ -1,17 +1,15 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/useAuth'
 import { ThemeToggle } from '../components/ThemeToggle'
 
 export function TryPage() {
   const [apiKey, setApiKey] = useState('')
-  const [profile, setProfile] = useState(null)
-  const [projects, setProjects] = useState(null)
-  const [skills, setSkills] = useState(null)
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
   const { token, logout } = useAuth()
+  const navigate = useNavigate()
 
   async function fetchPortfolio(path, headers) {
     const response = await fetch(`http://localhost:8080${path}`, { headers })
@@ -26,9 +24,6 @@ export function TryPage() {
     e.preventDefault()
     setError('')
     setIsLoading(true)
-    setProfile(null)
-    setProjects(null)
-    setSkills(null)
 
     const headers = {
       'X-API-Key': apiKey,
@@ -36,14 +31,12 @@ export function TryPage() {
     }
 
     try {
-      const [profileData, projectsData, skillsData] = await Promise.all([
+      const [profile, projects, skills] = await Promise.all([
         fetchPortfolio('/api/portfolio/profile', headers),
         fetchPortfolio('/api/portfolio/projects', headers),
         fetchPortfolio('/api/portfolio/skills', headers),
       ])
-      setProfile(profileData)
-      setProjects(projectsData)
-      setSkills(skillsData)
+      navigate('/portfolio-view', { state: { profile, projects, skills } })
     } catch (err) {
       setError(err.message)
     } finally {
@@ -108,64 +101,8 @@ export function TryPage() {
         </form>
 
         {error && (
-          <div className="mb-6 text-sm text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900 rounded-lg px-3 py-2">
+          <div className="text-sm text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900 rounded-lg px-3 py-2">
             {error}
-          </div>
-        )}
-
-        {profile && (
-          <div className="mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">{profile.name}</h2>
-            <p className="text-sm text-indigo-600 dark:text-indigo-400 mt-0.5">{profile.title}</p>
-            <p className="text-sm text-gray-600 dark:text-gray-300 mt-3">{profile.bio}</p>
-            <div className="flex gap-4 mt-4">
-              <a href={profile.github} target="_blank" rel="noreferrer" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                GitHub
-              </a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer" className="text-sm text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        )}
-
-        {projects && (
-          <div className="mb-6 space-y-3">
-            {projects.map((project, i) => (
-              <div key={i} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white">{project.name}</h3>
-                  {project.url && (
-                    <a href={project.url} target="_blank" rel="noreferrer" className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline">
-                      View repo
-                    </a>
-                  )}
-                </div>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{project.description}</p>
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {project.techStack.map((tech) => (
-                    <span key={tech} className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-full px-2 py-0.5">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {skills && (
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
-            <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">
-              Skills
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {skills.map((skill) => (
-                <span key={skill} className="text-xs bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-400 rounded-full px-2 py-0.5">
-                  {skill}
-                </span>
-              ))}
-            </div>
           </div>
         )}
       </main>
