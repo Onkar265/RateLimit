@@ -6,7 +6,6 @@ import { RegisterPage } from './pages/RegisterPage'
 import { KeysPage } from './pages/KeysPage'
 import { UsagePage } from './pages/UsagePage'
 import { TryPage } from './pages/TryPage'
-import { ShowcasePage } from './pages/ShowcasePage'
 
 function App() {
   return (
@@ -40,14 +39,6 @@ function App() {
               <TryPage />
             </ProtectedRoute>
           } />
-          <Route
-            path="/portfolio-view"
-            element={
-              <ProtectedRoute>
-                <ShowcasePage />
-              </ProtectedRoute>
-            }
-          />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
