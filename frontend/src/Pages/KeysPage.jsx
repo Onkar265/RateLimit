@@ -92,6 +92,12 @@ export function KeysPage() {
             >
               Usage
             </Link>
+            <Link
+              to="/try"
+              className="px-3 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white rounded-lg"
+            >
+              Try it
+            </Link>
             <div className="w-px h-5 bg-gray-200 dark:bg-gray-800 mx-2" />
             <ThemeToggle />
             <button
