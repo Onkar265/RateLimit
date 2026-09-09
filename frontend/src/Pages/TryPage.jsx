@@ -15,7 +15,7 @@ export function TryPage() {
   const navigate = useNavigate()
 
   async function fetchPortfolio(path, headers) {
-    const response = await fetch(`http://localhost:8080${path}`, { headers })
+    const response = await fetch(`https://ratelimit-backend-v3l5.onrender.com${path}`, { headers })
     if (response.status === 401) {
       logout()
       navigate('/login')

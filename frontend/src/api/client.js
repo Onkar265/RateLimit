@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://ratelimit-backend-v3l5.onrender.com'
 
 function getToken() {
   return localStorage.getItem('token')
