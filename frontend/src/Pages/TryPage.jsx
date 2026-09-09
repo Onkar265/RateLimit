@@ -121,7 +121,7 @@ export function TryPage() {
 
         {profile && (
           <div className="mb-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 mx-auto mb-4 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-indigo-500 to-violet-600 mx-auto mb-4 flex items-center justify-center">
               <span className="text-white font-bold text-lg">
                 {profile.name.split(' ').map((n) => n[0]).join('')}
               </span>
